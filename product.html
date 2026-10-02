@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Aura Atelier</title>
+  <meta name="description" content="View luxury fashion product details, craftsmanship specifications, fabric care, and customer reviews at Aura Atelier.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar" aria-label="Announcement">
+    <div class="container">
+      <div class="top-bar-message">
+        <span>✨ Spring / Summer 2026 Haute Edition</span>
+        <span>• Use code <strong onclick="navigator.clipboard.writeText('VOGUE20'); showToast('Code Copied', 'Promo code VOGUE20 copied to clipboard!', 'success');">VOGUE20</strong> for 20% OFF</span>
+        <span>• Free Worldwide Express Shipping over ₹150</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="men.html" class="top-bar-link">Men</a>
+        <a href="women.html" class="top-bar-link">Women</a>
+        <a href="kids.html" class="top-bar-link">Kids</a>
+        <span class="top-bar-link">VIP Concierge: +1 (800) 928-AURA</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Aura Atelier Homepage">
+        <span class="logo-sparkle">✦</span>
+        <span>AURA ATELIER</span>
+      </a>
+
+      <nav class="nav-links" id="primary-nav" aria-label="Main Navigation">
+        <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
+        <div class="nav-item"><a href="men.html" class="nav-link">Men</a></div>
+        <div class="nav-item"><a href="women.html" class="nav-link">Women</a></div>
+        <div class="nav-item"><a href="kids.html" class="nav-link">Kids</a></div>
+        <div class="nav-item"><a href="women.html?sub=dresses" class="nav-link">New In</a></div>
+        <div class="nav-item"><a href="men.html?sub=jackets" class="nav-link">Sale <span class="sale-pill">-30%</span></a></div>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-wrapper">
+          <div class="search-input-box">
+            <span class="search-icon-btn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input type="text" id="header-search-input" placeholder="Search luxury pieces..." autocomplete="off">
+          </div>
+          <div class="search-results-dropdown" id="search-results-dropdown"></div>
+        </div>
+
+        <button class="action-btn theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
+          <span class="theme-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+
+        <a href="wishlist.html" class="action-btn" aria-label="View Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="badge-count wishlist-count-badge" style="display: none;">0</span>
+        </a>
+
+        <a href="cart.html" class="action-btn" aria-label="View Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="badge-count cart-count-badge" style="display: none;">0</span>
+        </a>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product Details Main Area -->
+  <main class="section">
+    <div class="container">
+      <!-- Breadcrumbs -->
+      <nav class="product-breadcrumbs" id="detail-breadcrumbs" style="margin-bottom: 30px;" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="#" id="crumb-category">Category</a>
+        <span>/</span>
+        <span id="crumb-title" style="color: var(--text-primary); font-weight: 600;">Product</span>
+      </nav>
+
+      <!-- Details Grid -->
+      <div class="product-details-grid" id="product-details-container">
+        <!-- Gallery Column -->
+        <div class="product-gallery">
+          <div class="product-thumbs" id="product-thumbnails"></div>
+          <div class="product-main-image-wrap">
+            <img id="detail-main-img" src="" alt="Product preview">
+          </div>
+        </div>
+
+        <!-- Info Column -->
+        <div class="product-info-col">
+          <div>
+            <span class="section-eyebrow" id="detail-category-eyebrow">Atelier Edition</span>
+            <h1 class="detail-title" id="detail-title">Loading Piece...</h1>
+          </div>
+
+          <div class="detail-meta-row">
+            <div class="detail-rating">
+              <span style="color: #f59e0b; font-size: 1.1rem;">★</span>
+              <span id="detail-rating-num" style="font-weight: 700;">4.9</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem;" id="detail-reviews-count">(142 Client Reviews)</span>
+            </div>
+            <div class="detail-stock-badge">In Stock • Ready to Dispatch</div>
+          </div>
+
+          <div class="detail-price-box">
+            <span class="detail-price-current" id="detail-price-current">₹0.00</span>
+            <span class="detail-price-original" id="detail-price-original"></span>
+            <span class="detail-price-save" id="detail-price-save" style="display: none;">Save 20%</span>
+          </div>
+
+          <p class="detail-desc-short" id="detail-desc-short"></p>
+
+          <!-- Color Swatches -->
+          <div>
+            <div class="option-label">
+              <span>Select Color: <strong id="selected-color-label" style="text-transform: none; font-weight: 600;"></strong></span>
+            </div>
+            <div class="color-swatches" id="color-swatches-container"></div>
+          </div>
+
+          <!-- Size Selector -->
+          <div>
+            <div class="option-label">
+              <span>Select Size: <strong id="selected-size-label" style="text-transform: none; font-weight: 600;"></strong></span>
+              <button style="color: var(--accent-gold); font-size: 0.78rem; text-decoration: underline;" onclick="showSizeGuideModal()">Size Guide</button>
+            </div>
+            <div class="sizes-row" id="sizes-row-container"></div>
+          </div>
+
+          <!-- Quantity Stepper & Action Buttons -->
+          <div class="quantity-and-actions">
+            <div class="quantity-stepper-wrap">
+              <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-secondary);">Quantity:</span>
+              <div class="stepper">
+                <button class="stepper-btn" onclick="updateQty(-1)">-</button>
+                <input class="stepper-input" id="detail-qty" value="1" readonly>
+                <button class="stepper-btn" onclick="updateQty(1)">+</button>
+              </div>
+            </div>
+
+            <div class="detail-actions-row">
+              <button class="btn btn-primary" id="btn-add-to-cart" onclick="handleAddToCartFromPage()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                Add to Bag
+              </button>
+
+              <button class="btn btn-gold" id="btn-buy-now" onclick="handleBuyNow()">
+                Buy Now
+              </button>
+
+              <button class="card-action-btn" id="btn-detail-wishlist" style="width: 48px; height: 48px; position: static;" onclick="handleDetailWishlistToggle()" aria-label="Add to Wishlist">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Concierge Guarantees -->
+          <div style="background-color: var(--bg-secondary); border-radius: var(--radius-sm); padding: 18px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span>📦</span>
+              <span><strong>Complimentary Delivery:</strong> Arrives within 2-4 business days.</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span>↺</span>
+              <span><strong>Hassle-Free Returns:</strong> 30-day doorstep concierge exchange.</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span>🛡️</span>
+              <span><strong>Authenticity Sealed:</strong> Includes certificate of master provenance.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           PRODUCT INFORMATION TABS
+           ========================================================================== -->
+      <section class="product-tabs-section">
+        <div class="product-tab-nav">
+          <div class="product-tab-btn is-active" data-tab="tab-specs" onclick="switchProductTab('tab-specs', this)">Craftsmanship &amp; Specs</div>
+          <div class="product-tab-btn" data-tab="tab-sizing" onclick="switchProductTab('tab-sizing', this)">Sizing &amp; Fit Advice</div>
+          <div class="product-tab-btn" data-tab="tab-shipping" onclick="switchProductTab('tab-shipping', this)">Delivery &amp; Returns</div>
+          <div class="product-tab-btn" data-tab="tab-reviews" onclick="switchProductTab('tab-reviews', this)">Client Reviews</div>
+        </div>
+
+        <div class="tab-pane is-active" id="tab-specs">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 16px;">Material Composition &amp; Origin</h3>
+          <ul id="tab-details-list" style="list-style: disc; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;"></ul>
+        </div>
+
+        <div class="tab-pane" id="tab-sizing">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">Bespoke Tailoring Guidelines</h3>
+          <p style="margin-bottom: 16px;">This garment fits true to standard European sizing. If you prefer a more tailored silhouette, we recommend choosing your standard size; for a relaxed contemporary drape, choose one size up.</p>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+              <tr style="border-bottom: 1.5px solid var(--border-color); color: var(--text-primary); font-weight: 700;">
+                <th style="padding: 10px;">Size</th>
+                <th style="padding: 10px;">Chest (Inches)</th>
+                <th style="padding: 10px;">Waist (Inches)</th>
+                <th style="padding: 10px;">Hip (Inches)</th>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 10px; font-weight: 600;">S</td>
+                <td style="padding: 10px;">36 - 38</td>
+                <td style="padding: 10px;">30 - 32</td>
+                <td style="padding: 10px;">36 - 38</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 10px; font-weight: 600;">M</td>
+                <td style="padding: 10px;">38 - 40</td>
+                <td style="padding: 10px;">32 - 34</td>
+                <td style="padding: 10px;">38 - 40</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 10px; font-weight: 600;">L</td>
+                <td style="padding: 10px;">40 - 42</td>
+                <td style="padding: 10px;">34 - 36</td>
+                <td style="padding: 10px;">40 - 42</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-weight: 600;">XL</td>
+                <td style="padding: 10px;">42 - 44</td>
+                <td style="padding: 10px;">36 - 38</td>
+                <td style="padding: 10px;">42 - 44</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="tab-shipping">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-primary); margin-bottom: 12px;">Complimentary White-Glove Dispatch</h3>
+          <p>Orders are hand-packaged in our archival signature gold-embossed boxes with protective cotton garment bags. Express air transit ensures delivery within 2 to 4 business days globally.</p>
+          <p style="margin-top: 12px;">We extend 30 calendar days from the date of receipt to request a complimentary size exchange or complete return.</p>
+        </div>
+
+        <div class="tab-pane" id="tab-reviews">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <div>
+              <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-primary);">Client Experience</h3>
+              <div style="font-size: 0.9rem; color: var(--text-muted);">98% of verified clients would recommend this piece.</div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="showToast('Review Submitted', 'Thank you! Your verified purchase review is pending concierge moderation.', 'success')">Write a Review</button>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="background-color: var(--bg-secondary); border-radius: var(--radius-sm); padding: 18px; border: 1px solid var(--border-color);">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <strong style="color: var(--text-primary);">Julian V. — London, UK</strong>
+                <span style="color: #f59e0b;">★★★★★</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                "The drape and weight of the material are truly world-class. It rivals Savile Row bespoke pieces at a fraction of the wait time. Outstanding packaging as well."
+              </p>
+            </div>
+            <div style="background-color: var(--bg-secondary); border-radius: var(--radius-sm); padding: 18px; border: 1px solid var(--border-color);">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <strong style="color: var(--text-primary);">Eleanor M. — Milan, Italy</strong>
+                <span style="color: #f59e0b;">★★★★★</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                "Color is even richer in natural sunlight than the photography displays. The silk lining feels featherlight and luxurious. 10/10 recommendation."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           RELATED PRODUCTS SECTION
+           ========================================================================== -->
+      <section class="section-sm" style="border-top: 1px solid var(--border-color); margin-top: 60px;">
+        <div class="section-header" style="margin-bottom: 36px;">
+          <span class="section-eyebrow">Curated Ensemble</span>
+          <h2 class="section-title">You May Also Like</h2>
+          <div class="gold-divider"></div>
+        </div>
+        <div class="product-grid" id="related-products-grid"></div>
+      </section>
+
+      <!-- ==========================================================================
+           RECENTLY VIEWED SECTION
+           ========================================================================== -->
+      <section class="section-sm" style="border-top: 1px solid var(--border-color);" id="recently-viewed-section">
+        <div class="section-header" style="margin-bottom: 36px;">
+          <span class="section-eyebrow">History</span>
+          <h2 class="section-title">Recently Viewed</h2>
+          <div class="gold-divider"></div>
+        </div>
+        <div class="product-grid" id="recently-viewed-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Size Guide Modal -->
+  <div class="modal-overlay" id="size-guide-modal">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Atelier Size &amp; Fit Guide</h3>
+        <button class="modal-close-btn" onclick="closeSizeGuideModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">
+          All measurements are in inches. Use a flexible measuring tape and keep it comfortably loose over undergarments.
+        </p>
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+          <tr style="border-bottom: 2px solid var(--border-color); font-weight: 700;">
+            <th style="padding: 8px;">Size</th>
+            <th style="padding: 8px;">Bust / Chest</th>
+            <th style="padding: 8px;">Waist</th>
+            <th style="padding: 8px;">Hips</th>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 8px;">XS</td><td style="padding: 8px;">32 - 34</td><td style="padding: 8px;">26 - 28</td><td style="padding: 8px;">34 - 36</td></tr>
+          <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 8px;">S</td><td style="padding: 8px;">36 - 38</td><td style="padding: 8px;">30 - 32</td><td style="padding: 8px;">36 - 38</td></tr>
+          <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 8px;">M</td><td style="padding: 8px;">38 - 40</td><td style="padding: 8px;">32 - 34</td><td style="padding: 8px;">38 - 40</td></tr>
+          <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 8px;">L</td><td style="padding: 8px;">40 - 42</td><td style="padding: 8px;">34 - 36</td><td style="padding: 8px;">40 - 42</td></tr>
+          <tr><td style="padding: 8px;">XL</td><td style="padding: 8px;">42 - 44</td><td style="padding: 8px;">36 - 38</td><td style="padding: 8px;">42 - 44</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <span class="logo-sparkle">✦</span>
+            <span>AURA ATELIER</span>
+          </a>
+          <p>Enduring sartorial excellence. Timeless European tailoring, pure organic cottons, and fine leather craft.</p>
+        </div>
+        <div>
+          <h4 class="footer-column-title">Collections</h4>
+          <div class="footer-links">
+            <a href="men.html" class="footer-link">Men's Wardrobe</a>
+            <a href="women.html" class="footer-link">Women's Atelier</a>
+            <a href="kids.html" class="footer-link">Kids' Essentials</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-column-title">Client Care</h4>
+          <div class="footer-links">
+            <a href="cart.html" class="footer-link">Shopping Bag</a>
+            <a href="wishlist.html" class="footer-link">Saved Wishlist</a>
+            <a href="index.html" class="footer-link">Return to Home</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-column-title">VIP Boutique</h4>
+          <div class="footer-links">
+            <span class="footer-link">Personal Styling Concierge</span>
+            <span class="footer-link">White-Glove Courier</span>
+            <span class="footer-link">Worldwide Insured Transit</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Aura Atelier Inc. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    let currentProduct = null;
+    let selectedSize = null;
+    let selectedColor = null;
+    let currentQty = 1;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const prodId = urlParams.get("id") || "men-01"; // Fallback to first piece
+
+      if (typeof ProductStore === "undefined") return;
+      currentProduct = ProductStore.getById(prodId) || ProductStore.getAll()[0];
+
+      if (currentProduct) {
+        // Track recently viewed
+        RecentlyViewedStore.add(currentProduct.id);
+
+        selectedSize = currentProduct.sizes ? currentProduct.sizes[0] : "Standard";
+        selectedColor = currentProduct.colors ? currentProduct.colors[0].name : "Classic";
+
+        populateProductDetails(currentProduct);
+        populateRelatedProducts(currentProduct);
+        populateRecentlyViewed();
+      }
+    });
+
+    function populateProductDetails(prod) {
+      document.title = `${prod.name} | Aura Atelier`;
+
+      // Breadcrumbs
+      const crumbCat = document.getElementById("crumb-category");
+      crumbCat.textContent = prod.category.toUpperCase();
+      crumbCat.href = `${prod.category}.html`;
+      document.getElementById("crumb-title").textContent = prod.name;
+
+      // Titles & Eyebrows
+      document.getElementById("detail-category-eyebrow").textContent = `${prod.category} • ${prod.subCategory}`;
+      document.getElementById("detail-title").textContent = prod.name;
+      document.getElementById("detail-rating-num").textContent = prod.rating;
+      document.getElementById("detail-reviews-count").textContent = `(${prod.reviewsCount} Client Reviews)`;
+      document.getElementById("detail-desc-short").textContent = prod.description;
+
+      // Price & Discount
+      document.getElementById("detail-price-current").textContent = `₹${prod.price.toFixed(2)}`;
+      const origPriceEl = document.getElementById("detail-price-original");
+      const saveEl = document.getElementById("detail-price-save");
+
+      if (prod.originalPrice > prod.price) {
+        origPriceEl.textContent = `₹${prod.originalPrice.toFixed(2)}`;
+        origPriceEl.style.display = "inline";
+        const percent = Math.round(((prod.originalPrice - prod.price) / prod.originalPrice) * 100);
+        saveEl.textContent = `Save ${percent}%`;
+        saveEl.style.display = "inline-block";
+      } else {
+        origPriceEl.style.display = "none";
+        saveEl.style.display = "none";
+      }
+
+      // Main image & thumbnails
+      const mainImg = document.getElementById("detail-main-img");
+      mainImg.src = prod.images[0];
+      mainImg.alt = prod.name;
+
+      const thumbsContainer = document.getElementById("product-thumbnails");
+      thumbsContainer.innerHTML = prod.images.map((imgUrl, idx) => `
+        <div class="product-thumb ${idx === 0 ? 'is-active' : ''}" onclick="switchGalleryImage('${imgUrl}', this)">
+          <img src="${imgUrl}" alt="${prod.name} view ${idx + 1}">
+        </div>
+      `).join("");
+
+      // Colors
+      const colorContainer = document.getElementById("color-swatches-container");
+      document.getElementById("selected-color-label").textContent = selectedColor;
+      if (prod.colors) {
+        colorContainer.innerHTML = prod.colors.map((c, i) => `
+          <button class="color-swatch-btn ${i === 0 ? 'is-active' : ''}" 
+                  style="background-color: ${c.hex};" 
+                  title="${c.name}" 
+                  onclick="selectColor('${c.name}', this)"></button>
+        `).join("");
+      }
+
+      // Sizes
+      const sizesContainer = document.getElementById("sizes-row-container");
+      document.getElementById("selected-size-label").textContent = selectedSize;
+      if (prod.sizes) {
+        sizesContainer.innerHTML = prod.sizes.map((s, i) => `
+          <button class="size-pill-btn ${i === 0 ? 'is-active' : ''}" 
+                  onclick="selectSize('${s}', this)">${s}</button>
+        `).join("");
+      }
+
+      // Wishlist active state
+      updateWishlistButtonState();
+
+      // Tab specifications
+      const specsList = document.getElementById("tab-details-list");
+      if (prod.details) {
+        specsList.innerHTML = prod.details.map(d => `<li>${d}</li>`).join("");
+      }
+    }
+
+    function switchGalleryImage(imgUrl, thumbEl) {
+      document.getElementById("detail-main-img").src = imgUrl;
+      document.querySelectorAll(".product-thumb").forEach(t => t.classList.remove("is-active"));
+      thumbEl.classList.add("is-active");
+    }
+
+    function selectColor(colorName, btn) {
+      selectedColor = colorName;
+      document.getElementById("selected-color-label").textContent = colorName;
+      document.querySelectorAll("#color-swatches-container .color-swatch-btn").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+    }
+
+    function selectSize(sizeName, btn) {
+      selectedSize = sizeName;
+      document.getElementById("selected-size-label").textContent = sizeName;
+      document.querySelectorAll("#sizes-row-container .size-pill-btn").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+    }
+
+    function updateQty(delta) {
+      currentQty = Math.max(1, currentQty + delta);
+      document.getElementById("detail-qty").value = currentQty;
+    }
+
+    function handleAddToCartFromPage() {
+      if (!currentProduct) return;
+      CartStore.add(currentProduct, selectedSize, selectedColor, currentQty);
+    }
+
+    function handleBuyNow() {
+      if (!currentProduct) return;
+      CartStore.add(currentProduct, selectedSize, selectedColor, currentQty);
+      window.location.href = "cart.html";
+    }
+
+    function handleDetailWishlistToggle() {
+      if (!currentProduct) return;
+      WishlistStore.toggle(currentProduct.id);
+      updateWishlistButtonState();
+    }
+
+    function updateWishlistButtonState() {
+      const btn = document.getElementById("btn-detail-wishlist");
+      if (!btn || !currentProduct) return;
+      const isSaved = WishlistStore.has(currentProduct.id);
+      if (isSaved) {
+        btn.classList.add("is-active");
+        btn.querySelector("svg").setAttribute("fill", "currentColor");
+      } else {
+        btn.classList.remove("is-active");
+        btn.querySelector("svg").setAttribute("fill", "none");
+      }
+    }
+
+    function switchProductTab(tabId, btn) {
+      document.querySelectorAll(".product-tab-btn").forEach(b => b.classList.remove("is-active"));
+      document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      const target = document.getElementById(tabId);
+      if (target) target.classList.add("is-active");
+    }
+
+    function populateRelatedProducts(prod) {
+      const relatedGrid = document.getElementById("related-products-grid");
+      if (!relatedGrid) return;
+      const related = ProductStore.getByCategory(prod.category)
+        .filter(p => p.id !== prod.id)
+        .slice(0, 4);
+      relatedGrid.innerHTML = related.map(p => createProductCardHTML(p)).join("");
+    }
+
+    function populateRecentlyViewed() {
+      const rvGrid = document.getElementById("recently-viewed-grid");
+      const rvSection = document.getElementById("recently-viewed-section");
+      if (!rvGrid || !rvSection) return;
+
+      const viewedIds = RecentlyViewedStore.get().filter(id => id !== currentProduct.id);
+      if (viewedIds.length === 0) {
+        rvSection.style.display = "none";
+        return;
+      }
+
+      const prods = viewedIds.map(id => ProductStore.getById(id)).filter(Boolean).slice(0, 4);
+      if (prods.length === 0) {
+        rvSection.style.display = "none";
+        return;
+      }
+
+      rvSection.style.display = "block";
+      rvGrid.innerHTML = prods.map(p => createProductCardHTML(p)).join("");
+    }
+
+    function showSizeGuideModal() {
+      document.getElementById("size-guide-modal").classList.add("is-active");
+    }
+
+    function closeSizeGuideModal() {
+      document.getElementById("size-guide-modal").classList.remove("is-active");
+    }
+  </script>
+</body>
+</html>
